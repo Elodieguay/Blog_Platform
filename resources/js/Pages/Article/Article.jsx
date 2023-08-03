@@ -53,7 +53,7 @@ export default function Article() {
                     <Slider slidesToShow={1} slidesToScroll={1} dots={true} className='max-w-[400px]'>
                         {fakeData.image.map((image, index) => (
                             <div key={index} className="mx-1 h-[400px]">
-                                <img src={image} alt="" className="max-w-[300px] mx-auto my-auto" />
+                                <img src={image} alt="" className="max-w-[300px] mx-auto my-auto object-cover" />
                             </div>
                         ))}
                     </Slider>
@@ -61,7 +61,7 @@ export default function Article() {
                 ) : (
                     <div className="flex">
                         {fakeData.image.map((image, index) => (
-                            <img key={index} src={image} alt="" className="max-w-[400px] mx-1" />
+                            <img key={index} src={image} alt="" className="max-w-[400px] mx-1 object-cover" />
                         ))}
                     </div>
                 )}
