@@ -1,5 +1,5 @@
 export default function Article() {
   return (
-    <div>Article</div>
+    <div>Component Article</div>
   )
 }
