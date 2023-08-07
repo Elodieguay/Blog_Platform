@@ -16,7 +16,8 @@
 				"onecentlin.laravel-blade",
 				"ryannaddy.laravel-artisan",
 				"usernamehw.errorlens",
-				"kamikillerto.vscode-colorize"
+				"kamikillerto.vscode-colorize",
+				"ms-vsliveshare.vsliveshare"
 			],
 			"settings": {}
 		}

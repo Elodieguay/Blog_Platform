@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+
 
 class PostController extends Controller
 {
@@ -12,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        // Post::latest()->get();
+        return response()->json(['posts' =>$posts]);
     }
 
     /**
@@ -28,12 +32,28 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        try{
+        
 
-    /**
-     * Display the specified resource.
-     */
+        //On valide les données récupérés du formulaire
+        $validation = $request-> validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'tag'=> 'required|string',
+            // 'image' =>'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+        ]);
+        
+       
+        $post = Post::create($validation);
+        return response()->json(['post' => $post], 200);
+        }
+        
+        catch (ValidationException $e){
+            return response()->json(['error' => $e->errors()], 400);
+        }
+
+    }
+       
     public function show(Post $post)
     {
         //
