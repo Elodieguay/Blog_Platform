@@ -39,4 +39,9 @@ Route::get('/blog', function () {
     return Inertia::render('Userblog/Blog');
 })->name('blog');
 
+
+Route::get('/userdashboard', function () {
+    return Inertia::render('Userblog/UserDashboard');
+})->name('userdashboard');
+
 require __DIR__.'/auth.php';
