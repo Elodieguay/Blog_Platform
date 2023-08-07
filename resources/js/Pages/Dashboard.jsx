@@ -1,5 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
+import CardArticle from '../Components/CardArticle';
+import About from '@/Components/About';
+
 
 export default function Dashboard({ auth }) {
     console.log(auth);
@@ -11,6 +14,15 @@ export default function Dashboard({ auth }) {
         >
             <Head title="Dashboard" />
 
+            <div className='flex'>
+                <div className="w-3/4 ml-4" >
+                    <CardArticle/>
+                </div>
+                <div className='w-1/6'></div>
+                <div className="w-2/6 mx-4">
+                    <About />
+                </div>
+            </div>
         </AuthenticatedLayout>
     );
 }
