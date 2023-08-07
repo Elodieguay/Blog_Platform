@@ -43,6 +43,11 @@ Route::get('/blog', function () {
     return Inertia::render('Userblog/Blog');
 })->name('blog');
 
+
+Route::get('/article', function () {
+    return Inertia::render('Article/Article');
+})->name('article');
+
 Route::get('/createarticle', function () {
     return Inertia::render('Userblog/CreateArticle');
 })->name('createarticle');
@@ -51,6 +56,7 @@ Route::get('/createarticle', function () {
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 // Ajoutez ici les routes pour les autres opérations CRUD : show, update et destroy.
+
 
 require __DIR__.'/auth.php';
 
