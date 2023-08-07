@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Post;
 use App\Models\User;
 
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
@@ -17,6 +16,7 @@ class PostFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
 
     protected $model = Post::class;
 
@@ -32,3 +32,4 @@ class PostFactory extends Factory
         ];
     }
 }
+

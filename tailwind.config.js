@@ -8,13 +8,25 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+      
     ],
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors:{
+                'home': '#182625'
             },
+           
+            fontFamily: {
+                'presse': ['Stardos Stencil', 'cursive'],
+                // 'autre': [...defaultTheme.fontFamily.sans],
+            },
+            backgroundImage : {
+                'word':  "url('/resources/js/Assets/press.png')",
+            }
+           
         },
     },
 

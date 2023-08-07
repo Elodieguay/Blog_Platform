@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,6 +19,8 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+   
+    
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -39,8 +43,20 @@ Route::get('/blog', function () {
     return Inertia::render('Userblog/Blog');
 })->name('blog');
 
+
 Route::get('/article', function () {
     return Inertia::render('Article/Article');
 })->name('article');
 
+Route::get('/createarticle', function () {
+    return Inertia::render('Userblog/CreateArticle');
+})->name('createarticle');
+
+// Routes pour le contrôleur PostController
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+// Ajoutez ici les routes pour les autres opérations CRUD : show, update et destroy.
+
+
 require __DIR__.'/auth.php';
+
