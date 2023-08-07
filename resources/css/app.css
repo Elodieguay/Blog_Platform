@@ -1,3 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;700&family=Stardos+Stencil:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.body, html {
+    @apply font-presse text-home bg-white
+}
+
+/* .my-masonry-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -30px;
+    width:auto;
+    
+    
+}
+
+.my-masonry-grid_column{
+    padding-left: 30px;
+    background-clip: padding-box;
+    /* background-color: blueviolet; */
+/* } */
+
+/* .my-masonry-grid_column > div {
+    margin-bottom: 30px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 1px;
+
+    
+} */
+
+
+/* 
+.grid {
+  display: grid;
+  width: 114rem;
+  grid-gap: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  align-items: start;
+} */
+/* @media (max-width: 60em) {
+  .grid {
+    grid-gap: 3rem;
+  }
+} */
+/* .grid__item {
+  background-color: #fff;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.card__img {
+  display: block;
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+}
+.card__content {
+  padding: 3rem 3rem;
+}
+.card__header {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #0d0d0d;
+  margin-bottom: 1.5rem;
+}
+.card__text {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.7;
+  color: #3d3d3d;
+  margin-bottom: 2.5rem;
+}
+.card__btn {
+  display: block;
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #3363ff;
+  background-color: #e6ecff;
+  border: none;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.card__btn span {
+  margin-left: 1rem;
+  transition: 0.2s;
+} */

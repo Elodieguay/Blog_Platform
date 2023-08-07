@@ -15,7 +15,9 @@
 				"onecentlin.laravel5-snippets",
 				"onecentlin.laravel-blade",
 				"ryannaddy.laravel-artisan",
-				"usernamehw.errorlens"
+				"usernamehw.errorlens",
+				"kamikillerto.vscode-colorize",
+				"ms-vsliveshare.vsliveshare"
 			],
 			"settings": {}
 		}
