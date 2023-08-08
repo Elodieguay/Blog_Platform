@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 
@@ -17,6 +18,14 @@ class PostController extends Controller
         $posts = Post::all();
         // Post::latest()->get();
         return response()->json(['posts' =>$posts]);
+    }
+
+    public function getUserPosts(Request $request)
+    {
+    $userId = $request->input('user_id');
+    $userPosts = Post::where('user_id', $userId)->get();
+
+    return response()->json($userPosts);
     }
 
     /**
@@ -33,8 +42,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         try{
-        
-
         //On valide les données récupérés du formulaire
         $validation = $request-> validate([
             'title' => 'required|string',

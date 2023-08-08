@@ -7,7 +7,8 @@ import About from '@/Components/About';
 
 
 export default function Dashboard({ auth }) {
-    console.log(auth);
+    // console.log("C'est le console log auth de dashboard : ",auth);
+    // console.log("C'est auth.user : ",auth.user);
 
     return (
         
@@ -20,7 +21,7 @@ export default function Dashboard({ auth }) {
 
             <div className='flex'>
                 <div className="w-3/4 ml-4" >
-                    <CardArticle/>
+                    <CardArticle auth={auth.user}/>
                 </div>
                 <div className='w-1/6'></div>
                 <div className="w-2/6 mx-4">
