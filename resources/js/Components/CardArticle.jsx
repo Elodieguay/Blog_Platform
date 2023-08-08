@@ -40,7 +40,7 @@ export default function Article(user) {
             <div className="w-3/4 ml-4">
               <h3>{post.title}</h3>
               <p>{user.auth.name}</p>
-              <p>{post.created}</p>
+              <p>{post.created_at.slice(0,10)}</p>
               {post.content.length > 400 ? (
                 <p>{post.content.slice(0, 250)}...</p>
               ) : (
@@ -51,11 +51,11 @@ export default function Article(user) {
               <img src={post.images[0]} alt="" className="object-cover w-[150px] h-[150px]" />
             </div> */}
           </div>
-          <button className="flex ml-4 mb-4 justify-center rounded-md bg-[#2E2E68] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-[100px]"
-          >Lire l'article</button>
-          <ArticleModal post={post} auth={user}/>
+          <ArticleModal post={post} user={user}/>
+          {/* <ArticleModal props={ {"post":post, "user":user}}/> */}
         </div>
       ))}
     </>
   )
 }
+

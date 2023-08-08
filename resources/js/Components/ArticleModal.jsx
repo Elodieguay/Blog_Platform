@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-export default function ArticleModal(post, auth) {
+export default function ArticleModal(props) {
+  let {post, user} = props;
+
+  console.log("Lui c'est post : ", post);
+  console.log("Et lui c'est user", user.auth);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -16,26 +20,29 @@ export default function ArticleModal(post, auth) {
     return (
         <div>
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            // className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            className="flex ml-4 mb-4 justify-center rounded-md bg-[#2E2E68] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-[150px]"
             onClick={openModal}
           >
-            Open Modal
+            Lire l'article
           </button>
           {isOpen && (
             <div className="fixed inset-0 flex items-center justify-center z-50">
-              <div className="bg-white rounded-lg p-8">
-                <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-                <p className="text-gray-500 text-sm mb-2">
-                  {auth.user.name} - {post.created_at}
-                </p>
-                <p className="text-gray-500 text-sm mb-4">{tag}</p>
-                <p className="text-gray-800">{post.content}</p>
-                <button
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mt-4"
-                  onClick={closeModal}
-                >
-                  Close Modal
-                </button>
+              <div className="max-w-screen-2xl w-full max-h[70vh] h-[70vh] overflow-y-scroll rounded-2xl shadow-2xl">
+                <div className="bg-slate-200 rounded-lg p-8 ">
+                  <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+                  <p className="text-gray-500 text-sm mb-2 font-bold">
+                    {user.auth.name} - {post.created_at.slice(0,10)}
+                  </p>
+                  <p className="text-gray-500 text-sm mb-4 capitalize font-bold">#{post.tag}</p>
+                  <p className="text-gray-800">{post.content}</p>
+                  <button
+                    className="flex ml-4 mb-4 mt-4 justify-center rounded-md bg-[#2E2E68] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-[150px]"
+                    onClick={closeModal}
+                  >
+                    Fermer l'article
+                  </button>
+                </div>
               </div>
             </div>
           )}
