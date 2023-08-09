@@ -5,14 +5,15 @@ import React from "react";
 
 
 
-export default function About(props) {
- const fakeData = {
-   id: 1,
-   name:"jake",
-   title:"prof",
-   description:"hjhgcfhjhjjk",
-   image: "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRRv9ICxXjK-LVFv-lKRId6gB45BFoNCLsZ4dk7bZpYGblPLPG-9aYss0Z0wt2PmWDb"
- }
+export default function About(user) {
+  // console.log(user)
+//  const fakeData = {
+//    id: 1,
+//    name:"jake",
+//    title:"prof",
+//    description:"hjhgcfhjhjjk",
+//    image: "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRRv9ICxXjK-LVFv-lKRId6gB45BFoNCLsZ4dk7bZpYGblPLPG-9aYss0Z0wt2PmWDb"
+//  }
 
 
 return (   
@@ -20,14 +21,14 @@ return (
   <div className="flex-col">
       About
     <div className="text-center">
-<img
+{/* <img
   src= {fakeData.image} 
   className="mx-auto mb-4 w-32 rounded-lg"
-  alt="Avatar" />
-<h5 className="mb-2 text-xl font-medium leading-tight">{fakeData.name} </h5>
-<p className="text-neutral-500 dark:text-neutral-400">{fakeData.title} </p>
+  alt="Avatar" /> */}
+<h5 className="mb-2 text-xl font-medium leading-tight">{user.user.name} </h5>
+<p className="text-neutral-500 dark:text-neutral-400">{user.user.job} </p>
 </div>
-<p className="mb-4 mt-0 text-base font-light leading-relaxed"> {fakeData.description}
+<p className="mb-4 mt-0 text-base font-light leading-relaxed"> {user.user.bio}
 </p>
   </div>
 
@@ -35,5 +36,10 @@ return (
 
 )
 }
-// about communique avec userdashboard notament pour les props
+
 // }
+
+// Route::get('/{id}', function($id) {
+//   return 'commande numéro : '.$id;
+// }); 
+// POUR FAIRE UN RENDU DYNAMIQUE GRACE A UNE VARIABLE

@@ -44,8 +44,16 @@ Route::get('/article', function () {
 })->name('article');
 
 
-Route::get('/userdashboard', function () {
-    return Inertia::render('Userblog/UserDashboard');
-})->name('userdashboard');
+// Route::get('/profile/{id}', function ($id) {
+//     // PSEUDOCODE
+//     // profile = get ProfileController:(where id=$id)
+//     // passer l'objet profile à la vue Profile.jsx
+//     return Inertia::render('Userblog/UserDashboard', param=user);
+// })->name('userdashboard');
+
+
+// Route:: any('/about{id}', function($id) {
+//     return Inertia:: render('About');
+// })-> name('about');
 
 require __DIR__.'/auth.php';
