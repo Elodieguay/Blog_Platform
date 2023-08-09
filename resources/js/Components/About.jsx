@@ -18,13 +18,14 @@ export default function About(user) {
 
 return (   
   <>
-  <div className="flex-col">
-      About
+  <div className="flex-col bg-red-200 rounded-lg shadow-lg 	height: 6rem">
+    About
     <div className="text-center">
-{/* <img
-  src= {fakeData.image} 
+<img
+  src= {user.user.image} 
   className="mx-auto mb-4 w-32 rounded-lg"
-  alt="Avatar" /> */}
+  alt="Avatar" />
+
 <h5 className="mb-2 text-xl font-medium leading-tight">{user.user.name} </h5>
 <p className="text-neutral-500 dark:text-neutral-400">{user.user.job} </p>
 </div>
@@ -43,3 +44,6 @@ return (
 //   return 'commande numéro : '.$id;
 // }); 
 // POUR FAIRE UN RENDU DYNAMIQUE GRACE A UNE VARIABLE
+
+// murazik.edd@example.com
+// Dr. Jermey McKenzie
