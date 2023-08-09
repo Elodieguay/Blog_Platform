@@ -15,6 +15,7 @@ export default function Dashboard({ auth }) {
         <AuthenticatedLayout
             user={auth.user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
+           
         >
             <Head title="Dashboard" />
 
@@ -23,9 +24,9 @@ export default function Dashboard({ auth }) {
                 <div className="w-3/4 ml-4" >
                     <CardArticle auth={auth.user}/>
                 </div>
-                <div className='w-1/6'></div>
+                <div className='w-1/6'>{auth.user.name}</div>
                 <div className="w-2/6 mx-4">
-                    <About />
+                    <About user={auth.user}/>
                 </div>
             </div>
         </AuthenticatedLayout>
