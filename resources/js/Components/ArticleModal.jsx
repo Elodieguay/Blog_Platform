@@ -20,7 +20,6 @@ export default function ArticleModal(props) {
     return (
         <div>
           <button
-            // className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
             className="flex ml-4 mb-4 justify-center rounded-md bg-[#2E2E68] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-[150px]"
             onClick={openModal}
           >
@@ -28,7 +27,7 @@ export default function ArticleModal(props) {
           </button>
           {isOpen && (
             <div className="fixed inset-0 flex items-center justify-center z-50">
-              <div className="max-w-screen-2xl w-full max-h[70vh] h-[70vh] overflow-y-scroll rounded-2xl shadow-2xl">
+              <div className="max-w-screen-2xl w-full   min-h-min max-h-[70vh] overflow-y-scroll rounded-2xl shadow-2xl">
                 <div className="bg-slate-200 rounded-lg p-8 ">
                   <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
                   <p className="text-gray-500 text-sm mb-2 font-bold">
