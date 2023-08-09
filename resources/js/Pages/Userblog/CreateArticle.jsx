@@ -1,12 +1,28 @@
 import React from 'react';
 import { useState } from "react";
 import axios from 'axios'
+import { Head, Link } from '@inertiajs/react';
+// import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+
+
+// import { usePage } from '@inertiajs/inertia-react';
+
 
 const CreateArticle = () => {
+
+    // const { props } = usePage();
+    // const userId = props.id;
+    const url = window.location.href;
+    const urlParts = url.split('/'); // Sépare l'URL en parties basées sur le slash "/"
+    const userId = urlParts[urlParts.length - 1]; // Récupère la dernière partie, qui devrait être l'ID
+ 
+    console.log(userId); 
+
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     // const [image, setImage] = useState(null);
     const [tag, setTag] = useState("")
+
   
     const handleTitleChange = (e) => {
       setTitle(e.target.value);
@@ -17,6 +33,8 @@ const CreateArticle = () => {
     const handleDescriptionChange = (e) => {
       setDescription(e.target.value);
     };
+    
+
   
     // const handleImageChange = (e) => {
     //   setImage(e.target.files[0]);
@@ -32,6 +50,7 @@ const CreateArticle = () => {
         formData.append('title', title);
         formData.append('tag', tag);
         formData.append('description', description);
+        // formData.append({user_id})
         // formData.append('image', image);
 
         //  On réalise une request Post avec Axios
@@ -48,7 +67,7 @@ const CreateArticle = () => {
 
             console.log(response.data);
 
-            if (res.status === 201) {
+            if (res.status === 200) {
                 // alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
                 window.location.href = "/article"; // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
               } else if (res.status === 400) {
@@ -69,76 +88,89 @@ const CreateArticle = () => {
   return (
     
     <>
-     {/* <header className=' w-full h-20 items-center justify-between bg-cyan-800  bg-opacity-40  text-gray-900 '>
-        <div className="ml-4 text-xl">THE BLOGGERS</div>
-        <div className="mr-4">Blog</div>
-     </header>         */}
-     <div className="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-white" >
-        <div className='text-6xl mr-4 font-presse mt-10  pl-6'>Write an article</div>
-
-        <div className="container mx-auto p-4 w-2/3 mt-8">
-            <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                <label htmlFor="title" className="block font-medium mb-2">
-                    Title
-                </label>
-                <input
-                    type="text"
-                    id="title"
-                    className="border border-gray-300 rounded-md px-4 py-2 w-full"
-                    value={title}
-                    onChange={handleTitleChange}
-                />
+      
+         <Head title="Welcome" />
+            <div className=" relative md:flex md:justify-center md:items-center min-h-screen">
+               
+                <div className="fixed md:top-0 md:left-0 p-6 ml-4 text-left font-presse md:text-6xl sm:text-3xl">
+                    The Bloggers
+                
                 </div>
-
-                <div className="mb-4">
-                <label htmlFor="tag" className="block font-medium mb-2">
-                    Tag
-                </label>
-                <input
-                    type="text"
-                    id="tag"
-                    className="border border-gray-300 rounded-md px-4 py-2 w-full"
-                    value={tag}
-                    onChange={handleTagChange}
-                />
-                </div>
-
-                <div className="mb-4">
-                <label htmlFor="description" className="block font-medium mb-2">
-                    Description
-                </label>
-                <textarea
-                    id="description"
-                    className="border border-gray-300 rounded-md px-4 py-2 w-full"
-                    value={description}
-                    onChange={handleDescriptionChange}
-                />
-                </div>
-
-                <div className="mb-4">
-                <label htmlFor="image" className="block font-medium mb-2">
-                    Image
-                </label>
-                <input
-                    type="file"
-                    id="image"
-                    className="border border-gray-300 rounded-md px-4 py-2 w-full"
-                    // onChange={handleImageChange}
-                />
-                </div>
-
-                <button
-                type="submit"
-                className=" bg-[#e62134]  hover:bg-lime-950  text-white font-medium py-2 px-4 rounded-md w-full"
+                <div className="fixed md:top-0 md:right-0 p-6 text-right text-base mt-5"> 
+                <Link
+                    href={route('dashboard')}
+                    className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                 >
-                Toto
-                </button>
-            </form>
-        </div>
+                    Dashboard
+                </Link>
+                </div>
+   
+                <div className=' flex text-6xl mr-4 font-presse mt-10  bg-red-200 pl-6'>Write an article</div>
+
+                <div className="container mx-auto p-4 w-2/3 mt-8">
+                <form onSubmit={handleSubmit}>
+                  
+                    <div className="mb-4">
+                    <label htmlFor="title" className="block font-medium mb-2">
+                        Title
+                    </label>
+                    <input
+                        type="text"
+                        id="title"
+                        className="border border-gray-300 rounded-md px-4 py-2 w-full"
+                        value={title}
+                        onChange={handleTitleChange}
+                    />
+                    </div>
+                    <div className="mb-4">
+                    <label htmlFor="tag" className="block font-medium mb-2">
+                        Tag
+                    </label>
+                    <input
+                        type="text"
+                        id="tag"
+                        className="border border-gray-300 rounded-md px-4 py-2 w-full"
+                        value={tag}
+                        onChange={handleTagChange}
+                    />
+                    </div>
+
+                    <div className="mb-4">
+                    <label htmlFor="description" className="block font-medium mb-2">
+                        Description
+                    </label>
+                    <textarea
+                        id="description"
+                        className="border border-gray-300 rounded-md px-4 py-2 w-full"
+                        value={description}
+                        onChange={handleDescriptionChange}
+                    />
+                    </div>
+
+                    <div className="mb-4">
+                    <label htmlFor="image" className="block font-medium mb-2">
+                        Image
+                    </label>
+                    <input
+                        type="file"
+                        id="image"
+                        className="border border-gray-300 rounded-md px-4 py-2 w-full"
+                        // onChange={handleImageChange}
+                    />
+                    </div>
+                    <Link href='/dashboarb'>
+                    <button
+                    
+                    type="submit"
+                    className=" bg-[#e62134]  hover:bg-lime-950  text-white font-medium py-2 px-4 rounded-md w-full"
+                    >
+                    Submit
+                    </button>
+                    </Link>
+                </form>
+            </div>
     </div>
-    
-    </>
+  </>
    
   )
 }

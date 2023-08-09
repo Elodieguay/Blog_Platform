@@ -52,9 +52,13 @@ Route::get('/createarticle', function () {
     return Inertia::render('Userblog/CreateArticle');
 })->name('createarticle');
 
+
+
 // Routes pour le contrôleur PostController
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+// Route::post('/createarticle', [PostController::class, 'store'])->name('createarticle');
+
 // Ajoutez ici les routes pour les autres opérations CRUD : show, update et destroy.
 
 

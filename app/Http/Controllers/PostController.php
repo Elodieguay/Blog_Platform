@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 
+
 class PostController extends Controller
 {
     /**
@@ -40,12 +41,17 @@ class PostController extends Controller
             'title' => 'required|string',
             'description' => 'required|string',
             'tag'=> 'required|string',
+            
             // 'image' =>'required|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
-        
+       
+        $validation['title'] = strip_tags($validation['title']);
+        $validation['description'] = strip_tags($validation['description']);
+        $validation['tag'] = strip_tags($validation['tag']);
+        $validation['user_id'] = auth()->id();
        
         $post = Post::create($validation);
-        return response()->json(['post' => $post], 200);
+        return response()->json(['post' => $post], 200) && redirect('/') ;
         }
         
         catch (ValidationException $e){
@@ -54,6 +60,7 @@ class PostController extends Controller
 
     }
        
+   
     public function show(Post $post)
     {
         //

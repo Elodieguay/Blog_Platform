@@ -15,7 +15,18 @@ use Inertia\Inertia;
 use Inertia\Response;
 
 class RegisteredUserController extends Controller
+
 {
+
+    // public function showDashboard()
+    // {
+    //     $user = Auth::user();
+    //     return Inertia::render('Dashboard', [
+    //         'userName' => $user->name,
+    //         'id'=>$user->id
+    //     ]);
+    // }
+
     /**
      * Display the registration view.
      */
@@ -42,6 +53,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
 
         event(new Registered($user));
 

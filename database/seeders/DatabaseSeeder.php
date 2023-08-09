@@ -26,7 +26,12 @@ class DatabaseSeeder extends Seeder
         // Post::factory(10)->create(); // Créera 10 posts
 
         // Ici on fabrique 10 users qui fabriquent chacun 5 articles
-        User::factory(10)->hasPosts(5)->create();
+        // Post::factory(5)->hasPost(5)->create();
+     
+        User::factory(5)->hasPosts(5)->create();
 
     }
+
 }
+
+ 
