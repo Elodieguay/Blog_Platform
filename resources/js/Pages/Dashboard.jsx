@@ -24,7 +24,7 @@ export default function Dashboard({ auth }) {
                 <div className="w-3/4 ml-4" >
                     <CardArticle auth={auth.user}/>
                 </div>
-                <div className='w-1/6'>{auth.user.name}</div>
+                <div className='w-1/6'></div>
                 <div className="w-2/6 mx-4">
                     <About user={auth.user}/>
                 </div>
