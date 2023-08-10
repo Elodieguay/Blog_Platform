@@ -5,10 +5,6 @@ import axios from "axios";
 
 export default function Article(user) {
 
-  console.log("c'est le console user : ", user);
-  console.log("c'est le console user.auth de cardarticle : ",user.auth);
-  console.log("c'est l'id de user.auth.id", user.auth.id);
-
   const xsrfToken = document.cookie
     .split('; ')
     .find(row => row.startsWith('XSRF-TOKEN'))
@@ -52,7 +48,6 @@ export default function Article(user) {
             </div> */}
           </div>
           <ArticleModal post={post} user={user}/>
-          {/* <ArticleModal props={ {"post":post, "user":user}}/> */}
         </div>
       ))}
     </>

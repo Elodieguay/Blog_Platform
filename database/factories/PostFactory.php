@@ -33,7 +33,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
+            'content' => $this->faker->paragraph,
             'tag' => $this->faker->word,
             'user_id' => User::factory(),
             'image' => Storage::disk('public')->put('images', $this->faker->image('public/images', 100, 100, null, false)),

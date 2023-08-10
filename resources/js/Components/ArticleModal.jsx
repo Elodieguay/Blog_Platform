@@ -2,10 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 export default function ArticleModal(props) {
-  let {post, user} = props;
-
-  console.log("Lui c'est post : ", post);
-  console.log("Et lui c'est user", user.auth);
+    let {post, user} = props;
 
     const [isOpen, setIsOpen] = useState(false);
 

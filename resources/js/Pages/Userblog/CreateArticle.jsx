@@ -158,7 +158,7 @@ const CreateArticle = () => {
                         // onChange={handleImageChange}
                     />
                     </div>
-                    <Link href='/dashboarb'>
+                    <Link href={route('dashboard')}>
                     <button
                     
                     type="submit"
