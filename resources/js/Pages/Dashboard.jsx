@@ -10,6 +10,9 @@ import {GrAddCircle} from 'react-icons/gr';
 
 
 export default function Dashboard({ auth }) {
+    // console.log("C'est le console log auth de dashboard : ",auth);
+    // console.log("C'est auth.user : ",auth.user);
+
     console.log(auth);
     const { name, id} = auth.user
     console.log(id);
@@ -17,7 +20,7 @@ export default function Dashboard({ auth }) {
         
         <AuthenticatedLayout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Hi {name}! This is your Blog</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Hi {name} ! This is your Blog</h2>}
         >
             <Head title="Dashboard" />
             <div>
@@ -34,7 +37,7 @@ export default function Dashboard({ auth }) {
                 </div>
                 <div className='flex border-r-2'>
                     <div className="w-3/4 ml-4" >
-                        <CardArticle/>
+                        <CardArticle auth={auth.user}/>
                     </div>
                     <div className='w-1/6'></div>
                     <div className="w-2/6 mx-4">

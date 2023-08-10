@@ -1,6 +1,24 @@
+
+import React from "react";
+
 export default function About(user) {
-  const{name} = user
+
+
   return (
-    <div>{name}Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia inventore veniam, doloremque vero eaque quibusdam consequuntur, maxime, optio obcaecati ipsam quaerat neque dolores aut nam omnis perspiciatis atque natus iure aliquam impedit nemo quo enim deleniti eveniet? Rerum, nihil odio doloremque assumenda nulla neque quas repellat voluptas impedit itaque cumque amet ducimus velit eligendi modi ipsam odit explicabo repudiandae sequi maiores dolorum nobis! Facilis vel vero possimus aspernatur blanditiis, incidunt suscipit, harum magni cupiditate quo ratione ducimus et atque. Ad culpa consequatur, distinctio rem quaerat magnam. Dignissimos saepe minus aperiam veniam obcaecati, at error blanditiis dicta accusantium nam sit atque.</div>
+    <>
+      <div className="flex-col bg-red-200 rounded-lg shadow-lg my-4 py-2 text-center">
+        <span className="text-2xl">About</span>
+        <div className="text-center">
+          <img
+            src={user.user.image}
+            className="mx-auto mb-4 w-32 rounded-lg"
+            alt="Avatar" />
+          <h5 className="mb-2 text-xl font-medium leading-tight">{user.user.name} </h5>
+          <p className="my-2 text-neutral-500 dark:text-neutral-400">{user.user.job} </p>
+          <p className="mx-auto mb-4 mt-0 font-light leading-relaxed w-64"> {user.user.bio}</p>
+        </div>
+      </div>
+    </>
+
   )
 }

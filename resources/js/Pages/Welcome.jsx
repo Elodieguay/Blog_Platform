@@ -42,13 +42,6 @@ export default function Welcome({ auth, posts}) {
                     The Bloggers
                 </div>
                 <div className="fixed md:top-0 md:right-0 p-6 text-right text-base mt-5">
-                    {/* <Link 
-                        href={route('createarticle')}
-                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >
-                        CREATE AN ARTICLE
-                    </Link> */}
-                   
                     {auth.user ? (
                         <Link
                             href={route('dashboard')}
