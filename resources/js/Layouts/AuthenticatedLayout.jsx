@@ -30,7 +30,7 @@ export default function Authenticated({ user, header, children }) {
                         <div className="hidden sm:flex sm:items-center sm:ml-6">
                             <div className="ml-3 relative">
                                 <Dropdown>
-                                    {/* <Dropdown.Trigger>
+                                    <Dropdown.Trigger>
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
@@ -52,7 +52,7 @@ export default function Authenticated({ user, header, children }) {
                                                 </svg>
                                             </button>
                                         </span>
-                                    </Dropdown.Trigger> */}
+                                    </Dropdown.Trigger>
 
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
