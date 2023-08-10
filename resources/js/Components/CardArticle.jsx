@@ -10,14 +10,11 @@ export default function Article(user) {
     .find(row => row.startsWith('XSRF-TOKEN'))
     .split('=')[1];
 
-
-  // Définir la valeur du cookie XSRF-TOKEN dans l'en-tête X-XSRF-TOKEN
   axios.defaults.headers.common['X-XSRF-TOKEN'] = xsrfToken;
 
   const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
-    // Appel à l'API pour récupérer les articles de l'utilisateur
     axios.get(`/api/allposts?user_id=${user.auth.id}`)
         .then(response => {
             setUserPosts(response.data);

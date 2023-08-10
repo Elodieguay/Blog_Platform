@@ -1,8 +1,6 @@
-
 import React from "react";
 
 export default function About(user) {
-
 
   return (
     <>
@@ -19,6 +17,5 @@ export default function About(user) {
         </div>
       </div>
     </>
-
   )
 }

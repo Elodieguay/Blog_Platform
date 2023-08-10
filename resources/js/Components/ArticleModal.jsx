@@ -3,13 +3,10 @@ import { useState } from "react";
 
 export default function ArticleModal(props) {
     let {post, user} = props;
-
     const [isOpen, setIsOpen] = useState(false);
-
     const openModal = () => {
         setIsOpen(true)
     };
-
     const closeModal = () => {
         setIsOpen(false)
     };
