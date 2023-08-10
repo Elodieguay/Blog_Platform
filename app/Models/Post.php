@@ -13,7 +13,7 @@ class Post extends Model
     use HasFactory;
 
 
-    protected $fillable = ['id','title', 'description', 'user_id', 'tag'];
+    protected $fillable = ['id','title', 'content', 'user_id', 'tag'];
 
     // Define the relationship with the user who authored the blog post
 

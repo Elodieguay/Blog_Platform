@@ -46,19 +46,19 @@ class PostController extends Controller
         //On valide les données récupérés du formulaire
         $validation = $request-> validate([
             'title' => 'required|string',
-            'description' => 'required|string',
+            'content' => 'required|string',
             'tag'=> 'required|string',
             
             // 'image' =>'required|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
        
         $validation['title'] = strip_tags($validation['title']);
-        $validation['description'] = strip_tags($validation['description']);
+        $validation['content'] = strip_tags($validation['content']);
         $validation['tag'] = strip_tags($validation['tag']);
         $validation['user_id'] = auth()->id();
        
         $post = Post::create($validation);
-        return response()->json(['post' => $post], 200) && redirect('/') ;
+        return response()->json(['post' => $post], 200);
         }
         
         catch (ValidationException $e){

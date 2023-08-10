@@ -19,7 +19,7 @@ const CreateArticle = () => {
     console.log(userId); 
 
     const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
+    const [content, setContent] = useState("");
     // const [image, setImage] = useState(null);
     const [tag, setTag] = useState("")
 
@@ -30,9 +30,11 @@ const CreateArticle = () => {
     const handleTagChange = (e) => {
         setTag(e.target.value);
     }
-    const handleDescriptionChange = (e) => {
-      setDescription(e.target.value);
+    const handleContentChange = (e) => {
+      setContent(e.target.value);
     };
+
+    console.log(content);
     
 
   
@@ -49,7 +51,7 @@ const CreateArticle = () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('tag', tag);
-        formData.append('description', description);
+        formData.append('content', content);
         // formData.append({user_id})
         // formData.append('image', image);
 
@@ -65,20 +67,20 @@ const CreateArticle = () => {
         })
         .then((response) => {
 
-            console.log(response.data);
+            console.log("ca c'est response",response.data);
 
-            if (res.status === 200) {
-                // alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
-                window.location.href = "/article"; // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
-              } else if (res.status === 400) {
-                alert('invalid request, please try again');
-              } else {
-                alert("Erreur lors de la connexion");
-              }
+            // if (res.status === 200) {
+            //     alert(resJson.message) // message de réussite envoyé par le back, affiché en alerte
+            //     window.location.href = "/article"; // Après ajout dans la base, l'utilisateur est renvoyé sur la page login
+            //   } else if (res.status === 400) {
+            //     alert('invalid request, please try again');
+            //   } else {
+            //     alert("Erreur lors de la connexion");
+            //   }
 
         })
         .catch((error) =>{
-            console.log(error);
+            console.log("ca c'est error",error);
             alert('we assume an issue, please try later')
         })
      
@@ -136,14 +138,14 @@ const CreateArticle = () => {
                     </div>
 
                     <div className="mb-4">
-                    <label htmlFor="description" className="block font-medium mb-2">
-                        Description
+                    <label htmlFor="content" className="block font-medium mb-2">
+                        Content
                     </label>
                     <textarea
-                        id="description"
+                        id="content"
                         className="border border-gray-300 rounded-md px-4 py-2 w-full"
-                        value={description}
-                        onChange={handleDescriptionChange}
+                        value={content}
+                        onChange={handleContentChange}
                     />
                     </div>
 
@@ -151,14 +153,13 @@ const CreateArticle = () => {
                     <label htmlFor="image" className="block font-medium mb-2">
                         Image
                     </label>
-                    <input
+                    {/* <input
                         type="file"
                         id="image"
                         className="border border-gray-300 rounded-md px-4 py-2 w-full"
                         // onChange={handleImageChange}
-                    />
+                    /> */}
                     </div>
-                    <Link href={route('dashboard')}>
                     <button
                     
                     type="submit"
@@ -166,6 +167,10 @@ const CreateArticle = () => {
                     >
                     Submit
                     </button>
+                    <Link href={route('dashboard')}>
+                        <button
+                            className="my-4 bg-[#e62134]  hover:bg-lime-950  text-white font-medium py-2 px-4 rounded-md w-full"
+                        >Revenir au dashboard</button>
                     </Link>
                 </form>
             </div>

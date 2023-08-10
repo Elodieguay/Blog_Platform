@@ -18,7 +18,7 @@ export default function Article(user) {
 
   useEffect(() => {
     // Appel à l'API pour récupérer les articles de l'utilisateur
-    axios.get(`/api/posts?user_id=${user.auth.id}`)
+    axios.get(`/api/allposts?user_id=${user.auth.id}`)
         .then(response => {
             setUserPosts(response.data);
         })
