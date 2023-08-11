@@ -72,9 +72,9 @@ export default function Welcome({ auth, posts }) {
                         </div>
                     </div>
                     <div className=' max-w-7xl  h-52 z-[100] py-10 m-auto bg-red-200  flex items-center   mt-4'>
-                        <h1 className='   bg-red-200 uppercase  w-1/2 text-6xl tracking-normal font-presse ml-12    '>The Best Recent Articles </h1>
+                        <h1 className='   bg-red-200 uppercase  w-1/2 text-6xl tracking-normal font-presse ml-12'>The Best Recent Articles </h1>
                     </div>
-                    <div className='  bg-white grid md:grid-cols-3 gap-4 min-h-screen items-center  pt-20  pl-5 pr-5'>
+                    <div className='  bg-white grid md:grid-cols-3 gap-4 min-h-screen items-center mt-10 pt-20 pl-5 pr-5'>
                         {data.posts.length > 0 ? (
                             data.posts.map((items) => (
                                 <Carte className='mx-8' key={items.id} title={items.title} description={items.description} id={items.id} />
